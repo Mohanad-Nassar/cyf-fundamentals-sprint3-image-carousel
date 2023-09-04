@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <p>
+            <u>Note:</u> When switching between the "next" and the "previous" buttons, you might need to double-click.
+        </p>
+
+        <img id="image"
+            src="https://images.nightcafe.studio/jobs/grqjRa3f0OZU2en5FEVd/grqjRa3f0OZU2en5FEVd--1--tl0cu.jpg?tr=w-1600,c-at_max"
+            width="300" height="300">
+
+        <br>
+
+
+        <button id="previous">⬅ Previous </button>
+        <button id="next">Next ➡ </button>
+
+        <br>
+        <br>
+
+    </div>
+
+    <script>
+        var links;
+
+
+        links = ['https://images.nightcafe.studio/jobs/LmVR1UWu9U63ki4qXDbU/LmVR1UWu9U63ki4qXDbU--1--wayqo.jpg?tr=w-1600,c-at_max', 'https://images.nightcafe.studio/jobs/gO3shhFPPsU8biSLZ3Jd/gO3shhFPPsU8biSLZ3Jd--1--ypur8.jpg?tr=w-1600,c-at_max', 'https://images.nightcafe.studio/jobs/xukm3SftiwdrGwXBtQga/xukm3SftiwdrGwXBtQga--1--6hnt2.jpg?tr=w-1600,c-at_max', 'https://images.nightcafe.studio/jobs/grqjRa3f0OZU2en5FEVd/grqjRa3f0OZU2en5FEVd--1--tl0cu.jpg?tr=w-1600,c-at_max'];
+
+
+        document.getElementById('next').addEventListener('click', (event) => {
+            let element_image = document.getElementById('image');
+            element_image.setAttribute("src", links[0]);
+            links.push(links.shift());
+
+        });
+
+        document.getElementById('previous').addEventListener('click', (event) => {
+            let element_image2 = document.getElementById('image');
+            element_image2.setAttribute("src", links.slice(-1)[0]);
+            links.unshift(links.pop());
+
+        });
+    </script>
+
+    <style>
+        * {
+            background-color: antiquewhite;
+        }
+
+        button {
+            width: 150px;
+        }
+
+        #box {
+            margin: 100px auto;
+            text-align: center;
+
+        }
+    </style>
+</body>
+
+</html>
